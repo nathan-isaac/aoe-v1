@@ -5,10 +5,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // Metadata
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;*/\n',
+        banner: '/** \n' +
+            ' * ! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            ' *<%= pkg.homepage ? " " + pkg.homepage + "\\n" : "" %>' +
+            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;\n' +
+            ' */\n',
         // Task configuration
         concat: {
             options: {
@@ -16,7 +17,7 @@ module.exports = function (grunt) {
                 stripBanners: true
             },
             dist: {
-                src: ['app/lib/aoe.js'],
+                src: ['bower_components/jquery/dist/jquery.min.js', 'app/lib/aoe.js'],
                 dest: 'public/js/aoe.js'
             }
         },
@@ -50,17 +51,20 @@ module.exports = function (grunt) {
                 src: 'gruntfile.js'
             },
             lib_test: {
-                src: ['app/lib/**/*.js', 'app/test/**/*.js']
+                src: ['app/lib/**/*.js']
             }
         },
         watch: {
+            options: {
+                livereload: true,
+            },
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
                 tasks: ['jshint:gruntfile']
             },
-            lib_test: {
-                files: '<%= jshint.lib_test.src %>',
-                tasks: ['jshint:lib_test']
+            js: {
+                files: '<%= concat.dist.src %>',
+                tasks: ['concat', 'uglify']
             },
             html: {
                 files: 'app/haml/main.haml',
@@ -86,6 +90,14 @@ module.exports = function (grunt) {
                     environment: 'production'
                 }
             }
+        },
+        connect: {
+            server: {
+                options: {
+                    port: 9001,
+                    base: 'public'
+                }
+            }
         }
     });
 
@@ -97,6 +109,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-haml');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     // Default task
     grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'haml']);

@@ -1,3 +1,14 @@
-body
-	margin: 0 0
-	background: #eee
+@import "../../bower_components/jeet/scss/jeet/index"
+
+@import "../../bower_components/normalize.scss/normalize"
+
+@include edit()
+
+.main 
+	@include center(960px)
+
+.teams
+	@include col(1/3)
+
+.civ
+	@include col(2/3)

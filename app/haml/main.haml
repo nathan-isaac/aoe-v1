@@ -2,9 +2,24 @@
 %html 
     %head
         %meta{ :charset => "utf-8" } 
-        %link{ :rel => "stylesheet", :href => "/css/master.css" }  
+        %link{ :rel => "stylesheet", :href => "css/master.css" }  
         %title AoE Team and Civ Generator 
     %body 
-        This is the start of my aoe application.
 
-    %script{ :src => "/js/aoe.min.js" } 
+        %section{ :class => 'main' }
+            %h1 AoE Team and Civ Generator
+
+            %aside{ :class => 'teams' }
+                %h2 Teams
+
+                %hr
+
+            %article{ :class => 'civ' }
+                %h2 Civs
+
+                %hr
+
+                %ul{ :class => 'civ_list'}
+
+    %script{ :src => "js/aoe.min.js" } 
+    %script{ :src => "//localhost:35729/livereload.js" } 
