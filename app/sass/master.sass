@@ -1,14 +1,49 @@
+@import "compass"
+
 @import "../../bower_components/jeet/scss/jeet/index"
 
 @import "../../bower_components/normalize.scss/normalize"
 
-@include edit()
+//@include edit()
 
-.main 
+.band_header 
+	background: #E86C62
+	color: #fff
+
+.master_container 
+	width: 100%
+	height: 100%
+
+	background: #eee
+
+	
+
+.container 
 	@include center(960px)
 
 .teams
-	@include col(1/3)
+	@include col(2/3)
 
 .civ
-	@include col(2/3)
+	@include col(1/3)
+
+.team 
+	background: #40BBE8
+	padding: 20px
+
+.team_name 
+	color: #FFF
+	border-bottom: 2px solid #51D2F7
+	padding-bottom: 10px
+	margin-top: 10px
+
+.player_name 
+	color: #FFF
+	font-size: 1.5em
+	text-transform: uppercase
+	font-weight: bold
+	padding-bottom: 5px
+
+.civ_name
+	color: #FFF
+	margin-bottom: 20px

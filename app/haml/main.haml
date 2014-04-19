@@ -6,20 +6,24 @@
         %title AoE Team and Civ Generator 
     %body 
 
-        %section{ :class => 'main' }
-            %h1 AoE Team and Civ Generator
+        %div{ :class => 'band band_header' }
 
-            %aside{ :class => 'teams' }
-                %h2 Teams
+            %section{ :class => 'container' }
+                
+                %header{ :class => 'hero' }
+                    %h1 AoE Team and Civ Generator
 
-                %hr
+        %div{ :class => 'band' }
 
-            %article{ :class => 'civ' }
-                %h2 Civs
+            %section{ :class => 'container' }
+                
+                %article{ :class => 'civ' }
+                    %h2 Setup
 
-                %hr
+                    %ul{ :class => 'civ_list'}
 
-                %ul{ :class => 'civ_list'}
+                %aside{ :class => 'teams' }
+                    %h2 Teams
 
     %script{ :src => "js/aoe.min.js" } 
     %script{ :src => "//localhost:35729/livereload.js" } 

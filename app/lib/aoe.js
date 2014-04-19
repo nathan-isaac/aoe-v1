@@ -33,63 +33,51 @@ var App = {
   ],
   
   settings: {
-    numberOfTeams: 4,
+    numberOfTeams: 1,
     teamsContainer: $('.teams'),
     civContainer: $('.civ')
   },
   
   init: function() {
     //console.log(this.getRandomNum(0,8));
-    this.genCivs();
-    this.genTeams();
+    //this.genCivs();
+    //this.genTeams();
+    this.randomizePeopleAndCivs();
   },
-  
-  genTeams: function() {
-    
-    var people = this.people;
-    
-    // Randomize People
-    people.sort(function () {
+
+  randomizePeopleAndCivs: function() {
+    this.people.sort(function() {
         return Math.random() - 0.5;
     });
-    
+
+    this.civs.sort(function() {
+        return Math.random() - 0.5;
+    });
+
+    this.genTeamsAndCivs();
+  },
+
+  genTeamsAndCivs: function() {
     var temp_array,
         chunk,
         count = 1,
-        list;
+        list,
+        people = this.people;
     
     chunk = people.length / this.settings.numberOfTeams;
     
     for (i=0; i<people.length; i+=chunk) {
       
         temp_array = people.slice(i,i+chunk);
+        var team_container = $('.teams').append('<section class="team team_'+count+'"></section>').find('.team_' + count);
+
+        team_container.append('<h3 class="team_name">Team '+count+'</h3>');
       
-        $('.teams').append('<h3>Team '+count+'</h3>');
-        
-        list = $('.teams').append('<ul class="team_'+i+'"></ul>').find('.team_'+i);
-      
-        for (var list_i=0; list_i<temp_array.length; list_i++)
-        {
-           list.append('<li>'+temp_array[list_i]+'</li>');
+        for (var list_i=0; list_i<temp_array.length; list_i++) {
+           team_container.append('<div class="player"><div class="player_name">'+temp_array[list_i]+'</div><div class="civ_name">'+this.civs[list_i]+'</div></div>');
         }
-        
+
         count++;
-    }
-    
-  },
-  
-  genCivs: function() {
-    var civs = this.civs;
-    // Randomize People
-    civs.sort(function () {
-        return Math.random() - 0.5;
-    });
-    
-    console.log(civs);
-    
-    for (i=0; i<this.people.length; i++) {
-      console.log(this.people[i] + ' with ' + civs[i]);
-      $('.civ_list').append('<li><strong>'+this.people[i]+':</strong> '+civs[i]+'</li>');
     }
   }
 };
