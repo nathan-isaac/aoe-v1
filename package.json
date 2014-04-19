@@ -1,0 +1,19 @@
+{
+  "name": "aoe",
+  "version": "0.0.0",
+  "homepage": "http://playground.njisaac.com/aoe/",
+  "author": {
+    "name": "Nathan Isaac"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-qunit": "*",
+    "grunt-contrib-haml": "~0.1.2",
+    "grunt-contrib-compass": "~0.7.2"
+  }
+}
