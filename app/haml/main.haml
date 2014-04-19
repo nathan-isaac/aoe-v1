@@ -3,27 +3,23 @@
     %head
         %meta{ :charset => "utf-8" } 
         %link{ :rel => "stylesheet", :href => "css/master.css" }  
+        %link{ :rel => "stylesheet", :href => "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"}
         %title AoE Team and Civ Generator 
-    %body 
+    %body                    
 
-        %div{ :class => 'band band_header' }
+        %section{ :class => 'fullwidth_container' }
+            
+            %aside{ :class => 'setup' }
+                %h2 Setup
 
-            %section{ :class => 'container' }
-                
+            %article{ :class => 'content' }
+
                 %header{ :class => 'hero' }
-                    %h1 AoE Team and Civ Generator
+                    %h1{ :class => 'hero_heading'} AoE Generator
 
-        %div{ :class => 'band' }
+                    %p{ :class => 'hero_descr'} An custom Age of Empires Team and Civilization Generator.
 
-            %section{ :class => 'container' }
-                
-                %article{ :class => 'civ' }
-                    %h2 Setup
-
-                    %ul{ :class => 'civ_list'}
-
-                %aside{ :class => 'teams' }
-                    %h2 Teams
+                %section{ :class => 'teams' }
 
     %script{ :src => "js/aoe.min.js" } 
     %script{ :src => "//localhost:35729/livereload.js" } 

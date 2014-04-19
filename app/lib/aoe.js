@@ -33,7 +33,7 @@ var App = {
   ],
   
   settings: {
-    numberOfTeams: 1,
+    numberOfTeams: 4,
     teamsContainer: $('.teams'),
     civContainer: $('.civ')
   },
@@ -61,6 +61,7 @@ var App = {
     var temp_array,
         chunk,
         count = 1,
+        civ_count = 1,
         list,
         people = this.people;
     
@@ -74,7 +75,8 @@ var App = {
         team_container.append('<h3 class="team_name">Team '+count+'</h3>');
       
         for (var list_i=0; list_i<temp_array.length; list_i++) {
-           team_container.append('<div class="player"><div class="player_name">'+temp_array[list_i]+'</div><div class="civ_name">'+this.civs[list_i]+'</div></div>');
+           team_container.append('<div class="player"><div class="player_name">'+temp_array[list_i]+'</div><div class="civ_name">'+this.civs[civ_count]+'</div></div>');
+           civ_count++;
         }
 
         count++;
