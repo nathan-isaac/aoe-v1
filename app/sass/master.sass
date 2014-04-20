@@ -1,17 +1,15 @@
 @import "compass"
-
 @import "../../bower_components/jeet/scss/jeet/index"
-
 @import "../../bower_components/normalize.scss/normalize"
 
-//@include edit()
+// +edit()
 
 * 
-	@include box-sizing(border-box)
+	+box-sizing(border-box)
 
 	&:before,
 	&:after 
-		@include box-sizing(border-box)
+		+box-sizing(border-box)
 
 html
 	height: 100%
@@ -21,30 +19,26 @@ body
 	font-family: 'Open Sans', sans-serif
 	background: #F8F8F8
 
-.master_container 
-	width: 100%
-	height: 100%
-
-	background: #eee
-
 .container 
-	@include center(960px)
+	+center(960px)
 
 .fullwidth_container 
-	@include center(100%)
+	+center(100%)
 	height: 100%
 
 .setup
-	@include span(1/3)
+	+span(1/3)
 	
 	color: #fff
 	padding: 0 20px
 	margin-top 30px
-	height: 100%
+	min-height: 100%
 	background: #3A3A3A
 
 .content 
-	@include span(2/3)
+	+span(2/3)
+
+	min-height: 100%
 
 .hero 
 	background: #FDD51C
@@ -59,26 +53,30 @@ body
 	margin: 0
 
 .teams
-	// @include col(2/3)
+	+cf()
 
 	margin-top: 30px
 	padding-right: 30px
 	padding-left: 30px
 
 .team 
-	@include col(1/4 2/3)
+	+col(1/4 2/3, $cycle: 4)
+	margin-bottom: 30px
 
-	&:nth-child(2n+1) 
+	&:nth-child(5n+1) 
 		background: #40BBE8
 
-	&:nth-child(2n+2) 
+	&:nth-child(5n+2) 
 		background: #3DE294
 
-	&:nth-child(2n+3) 
+	&:nth-child(5n+3) 
 		background: #FDD51C
 
-	&:nth-child(2n+4) 
+	&:nth-child(5n+4) 
 		background: #F9684D
+
+	&:nth-child(5n+5) 
+		background: #333
 
 
 .team_name 
@@ -90,7 +88,7 @@ body
 	text-align: center
 
 .player 
-	@include cf()
+	+cf()
 	padding: 10px 20px
 
 	&:nth-child(even)   
@@ -107,3 +105,37 @@ body
 	color: #FFF
 	// margin-bottom: 20px
 	font-size: 0.8em
+
+
+
+// Forms
+
+.form-group
+	margin-bottom: 20px
+
+	.form-control
+		background: #5A5A5A
+		border: none
+		padding: 10px 15px
+		width: 100%
+		color: #FFF
+
+
+// Buttons
+
+.btn
+	width: 100%
+	background: none
+	border: 1px solid #FFF
+	border-radius: 6px
+	padding: 10px 15px
+	color: #fff
+	font-weight: 600
+	font-size: 1em
+
+	&:hover
+		background: #fff
+		color: #474747
+
+.btn-primary
+	@extend .btn

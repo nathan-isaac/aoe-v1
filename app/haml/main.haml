@@ -10,7 +10,17 @@
         %section{ :class => 'fullwidth_container' }
             
             %aside{ :class => 'setup' }
-                %h2 Setup
+                %h2 Add Players
+
+                %div{ :class => 'form-group' }
+                    %input{ :type => 'text', :value => 'Nathan', :class => 'form-control' }
+                    -# %i{ :class => 'form-control-action' }
+                
+                %div{ :class => 'form-group' }
+                    %input{ :type => 'text', :placeholder => 'Player Name', :class => 'form-control' }
+                    %i{ :class => 'form-control-action' }
+
+                %button{ :type => 'button', :class => 'btn-primary' } Generate
 
             %article{ :class => 'content' }
 
