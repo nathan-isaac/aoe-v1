@@ -9,15 +9,30 @@
   <body>
     <section class='fullwidth_container'>
       <aside class='setup'>
-        <h2>Add Players</h2>
-        <div class='form-group'>
-          <input class='form-control' type='text' value='Nathan'>
+        <div class='edit-players'>
+          <h2>Add Players</h2>
+          <div class='form-group'>
+            <input class='form-control form-control_light' placeholder='Enter Player Name' type='text'>
+          </div>
+          <div class='form-group'>
+            <input class='form-control' type='text' value='Nathan'>
+          </div>
         </div>
-        <div class='form-group'>
-          <input class='form-control' placeholder='Player Name' type='text'>
-          <i class='form-control-action'></i>
+        <div class='p-bottom'>
+          <div class='form-group'>
+            <select class='form-control'>
+              <option value='1'>1 team</option>
+              <option value='2'>2 teams</option>
+              <option value='3'>3 teams</option>
+              <option value='4'>4 teams</option>
+              <option value='5'>5 teams</option>
+              <option value='6'>6 teams</option>
+              <option value='7'>7 teams</option>
+              <option value='8'>8 teams</option>
+            </select>
+          </div>
+          <button class='btn-primary' type='button'>Generate</button>
         </div>
-        <button class='btn-primary' type='button'>Generate</button>
       </aside>
       <article class='content'>
         <header class='hero'>

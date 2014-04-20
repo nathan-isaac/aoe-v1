@@ -10,17 +10,26 @@
         %section{ :class => 'fullwidth_container' }
             
             %aside{ :class => 'setup' }
-                %h2 Add Players
 
-                %div{ :class => 'form-group' }
-                    %input{ :type => 'text', :value => 'Nathan', :class => 'form-control' }
-                    -# %i{ :class => 'form-control-action' }
-                
-                %div{ :class => 'form-group' }
-                    %input{ :type => 'text', :placeholder => 'Player Name', :class => 'form-control' }
-                    %i{ :class => 'form-control-action' }
+                %div{ :class => 'edit-players' }
+                    %h2 Add Players
 
-                %button{ :type => 'button', :class => 'btn-primary' } Generate
+                    %div{ :class => 'form-group' }
+                        %input{ :type => 'text', :placeholder => 'Enter Player Name', :class => 'form-control form-control_light' }
+                        -# %i{ :class => 'form-control-action' }
+
+                    %div{ :class => 'form-group' }
+                        %input{ :type => 'text', :value => 'Nathan', :class => 'form-control' }
+                        -# %i{ :class => 'form-control-action' }
+
+                %div{ :class => 'p-bottom' }
+                    %div{ :class => 'form-group' }
+                        %select{ :class => 'form-control' }
+                            %option{ :value => '1' } 1 team
+                            - (2..8).each do |i|
+                                %option{ :value => i } #{i} teams
+                           
+                    %button{ :type => 'button', :class => 'btn-primary' } Generate
 
             %article{ :class => 'content' }
 

@@ -5,6 +5,7 @@ A small app that makes it easy to create teams with Age of Empires civs of your 
 ### Development Dependencies
 
 - Ruby
+- haml
 - SASS
 - Compass
 - Node (npm)
