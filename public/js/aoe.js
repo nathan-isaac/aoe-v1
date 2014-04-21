@@ -14,14 +14,7 @@ return d||(f=$b[b],$b[b]=e,e=null!=c(a,b,d)?b.toLowerCase():null,$b[b]=f),e}});v
 var App = {
   
   people: [
-    'Nathan',
-    'Rochelle',
-    'Marti',
-    'Walt',
-    'Jeff',
-    'Erica',
-    'Logan',
-    'Tyler'
+    'Example Name'
   ],
   
   civs: [
@@ -53,7 +46,7 @@ var App = {
   },
   
   settings: {
-    numberOfTeams: 4,
+    numberOfTeams: 1,
     teamsContainer: $('.teams'),
     civContainer: $('.civ')
   },
@@ -75,8 +68,6 @@ var App = {
             App.people.push($(this).val());
         });
 
-        console.log(App.el.numOfteams.val());
-
         App.settings.numberOfTeams = App.el.numOfteams.val();
 
         App.randomizePeopleAndCivs();
@@ -84,8 +75,7 @@ var App = {
 
     this.el.addNameField.keypress(function(e) {
         if (e.which == 13 && $(this).val() != "") {
-            console.log("Enter pressed");
-            App.el.players.append('<div class="form-group"><input type="text" value="'+$(this).val()+'" class="form-control" /><i class="form-control_action fa fa-trash-o"></i></div>');
+            App.el.players.prepend('<div class="form-group"><input type="text" value="'+$(this).val()+'" class="form-control" /><i class="form-control_action fa fa-trash-o"></i></div>');
             $(this).val("");
             return false; // prevent the button click from happening
         }
