@@ -11,13 +11,29 @@ module.exports = function (grunt) {
             ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;\n' +
             ' */\n',
         // Task configuration
+        copy: {
+            fontawesomecss: {
+                // expand: true,
+                src: 'bower_components/font-awesome/css/*.css',
+                dest: 'public/lib/font-awesome/css/'
+            },
+            fontawesomefont: {
+                // expand: true,
+                src: 'bower_components/font-awesome/fonts/*',
+                dest: 'public/lib/font-awesome/fonts/'
+            }
+        },
         concat: {
             options: {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
             dist: {
-                src: ['bower_components/jquery/dist/jquery.min.js', 'app/lib/aoe.js'],
+                src: [
+                    'bower_components/jquery/dist/jquery.min.js', 
+                    'bower_components/list.js/dist/list.min.js', 
+                    'app/lib/aoe.js'
+                ],
                 dest: 'public/js/aoe.js'
             }
         },
@@ -110,6 +126,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-haml');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task
     grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'haml']);

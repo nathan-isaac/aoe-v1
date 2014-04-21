@@ -31,6 +31,15 @@ var App = {
     'Turks',
     'Vikings'
   ],
+
+  el: {
+    genBtn: $('.gen-btn'),
+    players: $('#players'),
+    addNameField: $('.add-name-field'),
+    teams: $('.teams'),
+    deleteBtn: $('.form-control_action'),
+    numOfteams: $('.num-of-teams')
+  },
   
   settings: {
     numberOfTeams: 4,
@@ -39,10 +48,41 @@ var App = {
   },
   
   init: function() {
-    //console.log(this.getRandomNum(0,8));
-    //this.genCivs();
-    //this.genTeams();
+    this.bindUIActions();
     this.randomizePeopleAndCivs();
+  },
+
+  bindUIActions: function() {
+    this.el.genBtn.on('click', function() {
+        var randomNum = Math.floor(Math.random() * 38) + 1;
+        var audio = new Audio('audio/taunts/'+randomNum+'.mp3');
+        audio.play();
+
+        App.people = new Array();
+
+        App.el.players.find('input').each(function() {
+            App.people.push($(this).val());
+        });
+
+        console.log(App.el.numOfteams.val());
+
+        App.settings.numberOfTeams = App.el.numOfteams.val();
+
+        App.randomizePeopleAndCivs();
+    });
+
+    this.el.addNameField.keypress(function(e) {
+        if (e.which == 13 && $(this).val() != "") {
+            console.log("Enter pressed");
+            App.el.players.append('<div class="form-group"><input type="text" value="'+$(this).val()+'" class="form-control" /><i class="form-control_action fa fa-trash-o"></i></div>');
+            $(this).val("");
+            return false; // prevent the button click from happening
+        }
+    });
+
+    this.el.players.on('click', '.form-control_action', function() {
+        $(this).parent('.form-group').remove();
+    });
   },
 
   randomizePeopleAndCivs: function() {
@@ -58,6 +98,9 @@ var App = {
   },
 
   genTeamsAndCivs: function() {
+
+    this.el.teams.empty();
+
     var temp_array,
         chunk,
         count = 1,
