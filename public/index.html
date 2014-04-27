@@ -10,13 +10,16 @@
   <body>
     <section class='fullwidth_container'>
       <aside class='setup'>
+        <div class='tabs'>
+          <a class='tab active'>Add Players</a>
+          <a class='tab'>Modify Civs</a>
+        </div>
         <div class='edit-players'>
-          <h2>Add Players</h2>
           <div class='form-group'>
             <input class='form-control form-control_light add-name-field' placeholder='Enter Player Name' type='text'>
           </div>
           <div id='players'>
-            <div class='form-group'>
+            <div class='form-group-slim'>
               <input class='form-control' type='text' value='Example Name'>
               <i class='form-control_action fa fa-trash-o'></i>
             </div>
@@ -48,4 +51,5 @@
     </section>
   </body>
   <script src='js/aoe.min.js'></script>
+  <script src='//localhost:35729/livereload.js'></script>
 </html>

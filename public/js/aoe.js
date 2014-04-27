@@ -1,5 +1,5 @@
 /** 
- * ! aoe - v0.0.0 - 2014-04-20
+ * ! aoe - v0.0.0 - 2014-04-26
  * http://playground.njisaac.com/aoe/
  * Copyright (c) 2014 Nathan Isaac;
  */
@@ -75,14 +75,14 @@ var App = {
 
     this.el.addNameField.keypress(function(e) {
         if (e.which == 13 && $(this).val() != "") {
-            App.el.players.prepend('<div class="form-group"><input type="text" value="'+$(this).val()+'" class="form-control" /><i class="form-control_action fa fa-trash-o"></i></div>');
+            App.el.players.prepend('<div class="form-group-slim"><input type="text" value="'+$(this).val()+'" class="form-control" /><i class="form-control_action fa fa-trash-o"></i></div>');
             $(this).val("");
             return false; // prevent the button click from happening
         }
     });
 
     this.el.players.on('click', '.form-control_action', function() {
-        $(this).parent('.form-group').remove();
+        $(this).parent('.form-group-slim').remove();
     });
   },
 

@@ -12,15 +12,18 @@
             
             %aside{ :class => 'setup' }
 
+                %div{ :class => 'tabs' }
+                    %a{ :class => 'tab active' } Add Players
+                    %a{ :class => 'tab' } Modify Civs
+
                 %div{ :class => 'edit-players' }
-                    %h2 Add Players
 
                     %div{ :class => 'form-group' }
                         %input{ :type => 'text', :placeholder => 'Enter Player Name', :class => 'form-control form-control_light add-name-field' }
 
                     %div{ :id => 'players' }
 
-                        %div{ :class => 'form-group' }
+                        %div{ :class => 'form-group-slim' }
                             %input{ :type => 'text', :value => 'Example Name', :class => 'form-control' }
                             %i{ :class => 'form-control_action fa fa-trash-o' }
                             
@@ -43,4 +46,4 @@
                 %section{ :class => 'teams' }
 
     %script{ :src => "js/aoe.min.js" } 
-    -# %script{ :src => "//localhost:35729/livereload.js" } 
+    %script{ :src => "//localhost:35729/livereload.js" } 
